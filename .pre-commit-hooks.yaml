@@ -195,7 +195,7 @@
 -   id: remove-main
     name: remove main from python file
     description: remove main from simple python file
-    entry: remove-main
+    entry: pre_commit_hooks.remove_main:main
     language: python
     type: [text]
     stages: [commit, push, manual]
