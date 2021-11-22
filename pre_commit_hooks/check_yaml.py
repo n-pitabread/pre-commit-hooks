@@ -62,8 +62,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             with open(filename, encoding='UTF-8') as f:
                 load_fn(f)
         except ruamel.yaml.YAMLError as exc:
-            print(exc)
-            retval = 1
+            if "could not determine a constructor for the tag '!secure'" in str(exc):
+                retval = 0
+            else:
+                print(exc)
+                retval = 1
     return retval
 
 
